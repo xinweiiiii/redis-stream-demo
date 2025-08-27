@@ -14,7 +14,6 @@ if env_path.exists():
 else:
     load_dotenv()
 
-# ---------- Async (recommended for stream workers) ----------
 def connect_redis() -> AsyncRedis:
     """
     Returns an asyncio Redis client.

@@ -11,7 +11,8 @@ def process(task):
 
 if __name__ == "__main__":
     r = connect_redis_sync()
-    last_id = "$"  # start with only new messages
+    last_id = "$"  # start with only new messages 
+    last_id = "0-0" # start from the very first entry
     print("worker_basic: waiting for tasks… Ctrl+C to quit")
     while True:
         resp = r.xread({STREAM: last_id}, block=10_000, count=10)
