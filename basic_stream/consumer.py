@@ -1,6 +1,6 @@
 import os, json
 from redis import Redis
-from ..redis_client import connect_redis
+from redis_client import connect_redis_sync
 
 STREAM = "tasks.basic"
 
@@ -10,7 +10,7 @@ def process(task):
     print(f"processing {kind} -> {payload}")
 
 if __name__ == "__main__":
-    r = redis_client()
+    r = connect_redis_sync()
     last_id = "$"  # start with only new messages
     print("worker_basic: waiting for tasks… Ctrl+C to quit")
     while True:
