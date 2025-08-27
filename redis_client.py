@@ -17,7 +17,6 @@ else:
 def connect_redis() -> AsyncRedis:
     """
     Returns an asyncio Redis client.
-    Prefers REDIS_URL (e.g., rediss://default:pwd@host:port).
     Falls back to REDIS_HOST/REDIS_PORT/REDIS_PASSWORD (+ TLS by default).
     """
     url = os.getenv("REDIS_URL")
